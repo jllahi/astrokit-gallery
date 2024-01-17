@@ -1,0 +1,46 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+
+interface Props extends HTMLAttributes<'a'> {
+	block?: boolean
+	class?: string
+	size?: 'sm' | 'md' | 'lg'
+	style?: 'outline' | 'primary' | 'inverted' | 'tag'
+}
+
+const sizes = {
+	sm: 'pb-1 px-1',
+	md: 'pb-1 px-2',
+	lg: 'py-2 px-3',
+}
+
+const styles = {
+	outline: 'border-2 border-black hover:bg-black text-black hover:text-white',
+	primary:
+		'bg-background-color text-font-color hover:bg-font-color hover:text-background-color',
+	inverted:
+		'bg-font-color text-background-color hover:bg-background-color hover:text-font-color',
+	tag: 'border-font-color border rounded-full text-sm',
+}
+
+const {
+	size = 'md',
+	style = 'primary',
+	block,
+	class: className,
+	...rest
+} = Astro.props
+---
+
+<a
+	class:list={[
+		'rounded place-content-center duration-300 ease-in-out',
+		block && 'w-full',
+		sizes[size],
+		styles[style],
+		className,
+	]}
+	{...rest}
+>
+	<slot />
+</a>

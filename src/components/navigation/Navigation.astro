@@ -1,0 +1,48 @@
+---
+import { type NavigationItem, navigation } from '@/data/navigation'
+import Link from '@/components/ui/Link.astro'
+
+// interface Props extends HTMLAttributes<'a'> {
+interface Props {
+	block?: boolean
+	class?: string
+	// size?: 'md' | 'lg'
+	style?: 'horizontal' | 'vertical'
+}
+
+const styles = {
+	horizontal: 'flex-row',
+	vertical: 'flex-col text-4xl',
+}
+
+const {
+	// size = 'md',
+	style = 'horizontal',
+	// block,
+	class: className,
+	...rest
+} = Astro.props
+---
+
+{
+	navigation && (
+		<nav>
+			<ul
+				class:list={[
+					'flex gap-4',
+					// block && 'w-full',
+					// sizes[size],
+					styles[style],
+					className,
+				]}
+				{...rest}
+			>
+				{navigation.map((item: NavigationItem) => (
+					<li>
+						<Link href={item.path}>{item.title}</Link>
+					</li>
+				))}
+			</ul>
+		</nav>
+	)
+}

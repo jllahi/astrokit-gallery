@@ -1,0 +1,47 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content'
+import Layout from '@/layouts/Layout.astro'
+import { Image } from 'astro:assets'
+
+export async function getStaticPaths() {
+	const images = await getCollection('images')
+	return images.map((image) => ({
+		params: { slug: image.slug },
+		props: image,
+	}))
+}
+type Props = CollectionEntry<'images'>
+
+const image = Astro.props
+// const { Content } = await image.render()
+---
+
+<Layout
+	seo={{
+		title: image.data.title,
+		description: image.data.description,
+		openGraph: {
+			basic: {
+				title: image.data.title,
+				type: 'image',
+				image: image.data.image.src,
+			},
+		},
+	}}
+	{...image.data}
+>
+	<!-- <Content /> -->
+	<p>{image.data.title}</p>
+	{
+		image.data.image && (
+			<Image
+				src={image.data.image}
+				alt={image.data.description ?? image.data.title}
+				width={image.data.image.width}
+				height={image.data.image.height}
+				class="object-cover"
+				transition:name={`image-${image.data.title}`}
+			/>
+		)
+	}
+</Layout>
