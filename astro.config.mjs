@@ -1,4 +1,4 @@
-import mkcert from 'vite-plugin-mkcert'
+// import mkcert from 'vite-plugin-mkcert'
 // import sentry from '@sentry/astro'
 // import spotlightjs from '@spotlightjs/astro'
 import tailwind from '@astrojs/tailwind'
@@ -37,7 +37,7 @@ export default defineConfig({
 	// image: {
 	//   service: squooshImageService()
 	// }
-	vite: {
-		plugins: [mkcert()],
-	},
+	// vite: {
+	// 	plugins: [mkcert()],
+	// },
 })
