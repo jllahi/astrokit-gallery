@@ -4,6 +4,7 @@ import type { CollectionEntry, ContentCollectionKey } from 'astro:content'
 import { Image, getImage } from 'astro:assets'
 // import { formatDate } from '@/utils/content'
 import 'photoswipe/style.css'
+import ImagePlaceholder from './ImagePlaceholder.astro'
 
 interface Props extends HTMLAttributes<'a'> {
 	image: CollectionEntry<ContentCollectionKey>
@@ -14,15 +15,24 @@ const { image, ...props } = Astro.props
 const imagePath = await getImage({
 	src: image.data.image,
 	format: 'webp',
-	width: '3800',
+	width: '3800'
 })
 // console.dir(imagePath)
+
+// <Image
+// 	src={image.data.image}
+// 	alt={image.data.title}
+// 	width={520}
+// 	height={520}
+// 	class="w-full object-cover duration-1000 ease-in-out hover:scale-105 hover:transition-all hover:duration-1000 "
+// 	transition:name={`image-${image.data.title}`}
+// />
 ---
 
 <a
 	href={`/image/${image.slug}`}
 	class:list={[
-		'flex flex-row gap-4',
+		'flex flex-row gap-4'
 		// 'rounded py-1 px-2',
 		// 'hover:bg-font-color hover:text-background-color',
 	]}
@@ -39,19 +49,16 @@ const imagePath = await getImage({
 	{
 		image.data.image && (
 			<div class="overflow-hidden">
-				<Image
+				<ImagePlaceholder
 					src={image.data.image}
 					alt={image.data.title}
-					width={520}
-					height={520}
-					class="w-full hover:transition-all hover:scale-105 object-cover duration-1000 hover:duration-1000 ease-in-out "
 					transition:name={`image-${image.data.title}`}
 				/>
 			</div>
 		)
 	}
 	<div class="pswp-caption-content">
-		<strong class="text-base font-light text-balance">
+		<strong class="text-balance text-base font-light">
 			{image.data.title}
 		</strong>
 		<!-- <div class="text-sm text-font-color-20 text-pretty">
@@ -72,13 +79,13 @@ const imagePath = await getImage({
 		top: 0,
 		bottom: 0,
 		left: 0,
-		right: 0,
+		right: 0
 	}
 	const largeScreenPadding = {
 		top: 30,
 		bottom: 30,
 		left: 70,
-		right: 70,
+		right: 70
 	}
 
 	const lightbox = new PhotoSwipeLightbox({
@@ -89,7 +96,7 @@ const imagePath = await getImage({
 		pswpModule: PhotoSwipe,
 		paddingFn: (viewportSize) => {
 			return viewportSize.x < 700 ? smallScreenPadding : largeScreenPadding
-		},
+		}
 		// paddingFn: (viewportSize) => {
 		// 	return {
 		// 		top: 30,
@@ -118,7 +125,7 @@ const imagePath = await getImage({
 	const captionPlugin = new PhotoSwipeDynamicCaption(lightbox, {
 		mobileLayoutBreakpoint: 700,
 		type: 'below',
-		mobileCaptionOverlapRatio: 1,
+		mobileCaptionOverlapRatio: 1
 	})
 
 	lightbox.init()
