@@ -13,26 +13,26 @@
 	},
 	"dependencies": {
 		"@appnest/masonry-layout": "^2.2.3",
-		"@astrojs/check": "^0.4.1",
+		"@astrojs/check": "^0.5.7",
 		"@astrojs/rss": "^4.0.5",
-		"@astrojs/sitemap": "^3.0.5",
+		"@astrojs/sitemap": "^3.1.1",
 		"@astrojs/tailwind": "^5.1.0",
-		"@fontsource-variable/inter": "^5.0.16",
-		"@iconify-json/heroicons": "^1.1.19",
-		"@iconify-json/ri": "^1.1.19",
-		"@sentry/astro": "^7.100.0",
-		"@spotlightjs/astro": "^1.0.15",
+		"@fontsource-variable/inter": "^5.0.17",
+		"@iconify-json/heroicons": "^1.1.20",
+		"@iconify-json/ri": "^1.1.20",
+		"@sentry/astro": "^7.106.1",
+		"@spotlightjs/astro": "^1.0.16",
 		"@tailwindcss/typography": "^0.5.10",
-		"astro": "^4.3.3",
+		"astro": "^4.5.1",
 		"astro-icon": "^1.1.0",
 		"astro-meta-tags": "^0.2.1",
 		"astro-robots-txt": "^1.0.0",
-		"astro-seo": "^0.8.0",
+		"astro-seo": "^0.8.3",
 		"photoswipe": "^5.4.3",
 		"photoswipe-dynamic-caption-plugin": "^1.2.7",
 		"sharp": "^0.33.2",
 		"tailwindcss": "^3.4.1",
-		"typescript": "^5.3.3"
+		"typescript": "^5.4.2"
 	},
 	"devDependencies": {
 		"astro-debugcss": "github:jllahi/astro-debugcss",
@@ -41,8 +41,8 @@
 		"prettier-package-json": "^2.8.0",
 		"prettier-plugin-astro": "^0.13.0",
 		"prettier-plugin-organize-imports": "^3.2.4",
-		"prettier-plugin-tailwindcss": "^0.5.11",
+		"prettier-plugin-tailwindcss": "^0.5.12",
 		"rimraf": "^5.0.5",
-		"vite-plugin-mkcert": "^1.17.3"
+		"vite-plugin-mkcert": "^1.17.4"
 	}
 }
