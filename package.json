@@ -27,7 +27,7 @@
 		"astro-icon": "^1.1.0",
 		"astro-meta-tags": "^0.2.1",
 		"astro-robots-txt": "^1.0.0",
-		"astro-seo": "^0.8.0",
+		"astro-seo": "^0.8.3",
 		"photoswipe": "^5.4.3",
 		"photoswipe-dynamic-caption-plugin": "^1.2.7",
 		"sharp": "^0.33.2",
