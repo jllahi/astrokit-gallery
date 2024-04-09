@@ -21,8 +21,8 @@ dependencies:
     specifier: ^5.1.0
     version: 5.1.0(astro@4.3.3)(tailwindcss@3.4.3)
   '@fontsource-variable/inter':
-    specifier: ^5.0.16
-    version: 5.0.16
+    specifier: ^5.0.17
+    version: 5.0.17
   '@iconify-json/heroicons':
     specifier: ^1.1.20
     version: 1.1.20
@@ -876,8 +876,8 @@ packages:
     requiresBuild: true
     optional: true
 
-  /@fontsource-variable/inter@5.0.16:
-    resolution: {integrity: sha512-k+BUNqksTL+AN+o+OV7ILeiE9B5M5X+/jA7LWvCwjbV9ovXTqZyKRhA/x7uYv/ml8WQ0XNLBM7cRFIx4jW0/hg==}
+  /@fontsource-variable/inter@5.0.17:
+    resolution: {integrity: sha512-sa80nNnqF8kzhBvqusWiL9vlPMVpdmOwMmDBup46Jggsr1VBqo+YuzwB36Ls+X6uHJtb8Yv3ALBHL/zGmT862A==}
     dev: false
 
   /@iconify-json/heroicons@1.1.20:
