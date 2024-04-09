@@ -37,6 +37,6 @@
 	"devDependencies": {
 		"astro-debugcss": "github:jllahi/astro-debugcss",
 		"rimraf": "^5.0.5",
-		"vite-plugin-mkcert": "^1.17.3"
+		"vite-plugin-mkcert": "^1.17.5"
 	}
 }
