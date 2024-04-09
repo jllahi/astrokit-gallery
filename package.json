@@ -22,7 +22,7 @@
 		"@iconify-json/ri": "^1.1.20",
 		"@sentry/astro": "^7.109.0",
 		"@spotlightjs/astro": "^1.0.20",
-		"@tailwindcss/typography": "^0.5.10",
+		"@tailwindcss/typography": "^0.5.12",
 		"astro": "^4.3.3",
 		"astro-icon": "^1.1.0",
 		"astro-meta-tags": "^0.2.2",
