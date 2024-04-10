@@ -10,7 +10,7 @@ dependencies:
     version: 2.2.3
   '@astrojs/check':
     specifier: ^0.5.10
-    version: 0.5.10(typescript@5.4.4)
+    version: 0.5.10(typescript@5.4.5)
   '@astrojs/rss':
     specifier: ^4.0.5
     version: 4.0.5
@@ -40,7 +40,7 @@ dependencies:
     version: 0.5.12(tailwindcss@3.4.3)
   astro:
     specifier: ^4.3.3
-    version: 4.3.3(typescript@5.4.4)
+    version: 4.3.3(typescript@5.4.5)
   astro-icon:
     specifier: ^1.1.0
     version: 1.1.0
@@ -52,7 +52,7 @@ dependencies:
     version: 1.0.0
   astro-seo:
     specifier: ^0.8.3
-    version: 0.8.3(typescript@5.4.4)
+    version: 0.8.3(typescript@5.4.5)
   photoswipe:
     specifier: ^5.4.3
     version: 5.4.3
@@ -66,8 +66,8 @@ dependencies:
     specifier: ^3.4.3
     version: 3.4.3
   typescript:
-    specifier: ^5.4.4
-    version: 5.4.4
+    specifier: ^5.4.5
+    version: 5.4.5
 
 devDependencies:
   astro-debugcss:
@@ -109,17 +109,17 @@ packages:
     resolution: {integrity: sha512-q4q48iygVyaFaaogu5xeYNHR5jj4yZMB4zC1JmfOggz7DPCp/QIJGbnLctf3y2maNtGz4PiLXrQRQlmx5hO57A==}
     dev: false
 
-  /@astrojs/check@0.5.10(typescript@5.4.4):
+  /@astrojs/check@0.5.10(typescript@5.4.5):
     resolution: {integrity: sha512-vliHXM9cu/viGeKiksUM4mXfO816ohWtawTl2ADPgTsd4nUMjFiyAl7xFZhF34yy4hq4qf7jvK1F2PlR3b5I5w==}
     hasBin: true
     peerDependencies:
       typescript: ^5.0.0
     dependencies:
-      '@astrojs/language-server': 2.8.4(typescript@5.4.4)
+      '@astrojs/language-server': 2.8.4(typescript@5.4.5)
       chokidar: 3.6.0
       fast-glob: 3.3.2
       kleur: 4.1.5
-      typescript: 5.4.4
+      typescript: 5.4.5
       yargs: 17.7.2
     transitivePeerDependencies:
       - prettier
@@ -136,7 +136,7 @@ packages:
   /@astrojs/internal-helpers@0.2.1:
     resolution: {integrity: sha512-06DD2ZnItMwUnH81LBLco3tWjcZ1lGU9rLCCBaeUCGYe9cI0wKyY2W3kDyoW1I6GmcWgt1fu+D1CTvz+FIKf8A==}
 
-  /@astrojs/language-server@2.8.4(typescript@5.4.4):
+  /@astrojs/language-server@2.8.4(typescript@5.4.5):
     resolution: {integrity: sha512-sJH5vGTBkhgA8+hdhzX78UUp4cFz4Mt7xkEkevD188OS5bDMkaue6hK+dtXWM47mnrXFveXA2u38K7S+5+IRjA==}
     hasBin: true
     peerDependencies:
@@ -150,7 +150,7 @@ packages:
     dependencies:
       '@astrojs/compiler': 2.7.1
       '@jridgewell/sourcemap-codec': 1.4.15
-      '@volar/kit': 2.1.6(typescript@5.4.4)
+      '@volar/kit': 2.1.6(typescript@5.4.5)
       '@volar/language-core': 2.1.6
       '@volar/language-server': 2.1.6
       '@volar/language-service': 2.1.6
@@ -214,7 +214,7 @@ packages:
       astro: ^3.0.0 || ^4.0.0
       tailwindcss: ^3.0.24
     dependencies:
-      astro: 4.3.3(typescript@5.4.4)
+      astro: 4.3.3(typescript@5.4.5)
       autoprefixer: 10.4.16(postcss@8.4.32)
       postcss: 8.4.32
       postcss-load-config: 4.0.2(postcss@8.4.32)
@@ -1423,7 +1423,7 @@ packages:
       '@sentry/types': 7.109.0
       '@sentry/utils': 7.109.0
       '@sentry/vite-plugin': 2.14.0
-      astro: 4.3.3(typescript@5.4.4)
+      astro: 4.3.3(typescript@5.4.5)
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -1612,7 +1612,7 @@ packages:
       '@sentry/astro': 7.109.0(astro@4.3.3)
       '@spotlightjs/overlay': 1.8.3
       '@spotlightjs/sidecar': 1.4.0
-      astro: 4.3.3(typescript@5.4.4)
+      astro: 4.3.3(typescript@5.4.5)
       source-map: 0.7.4
     dev: false
 
@@ -1739,7 +1739,7 @@ packages:
   /@ungap/structured-clone@1.2.0:
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
 
-  /@volar/kit@2.1.6(typescript@5.4.4):
+  /@volar/kit@2.1.6(typescript@5.4.5):
     resolution: {integrity: sha512-dSuXChDGM0nSG/0fxqlNfadjpAeeo1P1SJPBQ+pDf8H1XrqeJq5gIhxRTEbiS+dyNIG69ATq1CArkbCif+oxJw==}
     peerDependencies:
       typescript: '*'
@@ -1747,7 +1747,7 @@ packages:
       '@volar/language-service': 2.1.6
       '@volar/typescript': 2.1.6
       typesafe-path: 0.2.2
-      typescript: 5.4.4
+      typescript: 5.4.5
       vscode-languageserver-textdocument: 1.0.11
       vscode-uri: 3.0.8
     dev: false
@@ -1910,7 +1910,7 @@ packages:
     peerDependencies:
       astro: ^4.0.0
     dependencies:
-      astro: 4.3.3(typescript@5.4.4)
+      astro: 4.3.3(typescript@5.4.5)
     dev: false
 
   /astro-robots-txt@1.0.0:
@@ -1920,17 +1920,17 @@ packages:
       zod: 3.22.4
     dev: false
 
-  /astro-seo@0.8.3(typescript@5.4.4):
+  /astro-seo@0.8.3(typescript@5.4.5):
     resolution: {integrity: sha512-gQeEh0U2yyVM0iyU8DTORK6hXMy5WH2wufrkUuNOKjI3LnYLniqgDxm1LZPQDuD6b4OHabVOi/5L88A9POCcCQ==}
     dependencies:
-      '@astrojs/check': 0.5.10(typescript@5.4.4)
+      '@astrojs/check': 0.5.10(typescript@5.4.5)
     transitivePeerDependencies:
       - prettier
       - prettier-plugin-astro
       - typescript
     dev: false
 
-  /astro@4.3.3(typescript@5.4.4):
+  /astro@4.3.3(typescript@5.4.5):
     resolution: {integrity: sha512-8Vfcv8LuCfzkLj+NMk7i7pu5o0MPyDkYqUYWELSwKxWf85zJSNU4oLg4DlEZWbVpm5LeTfVrpSGrZGy5n4grBg==}
     engines: {node: '>=18.14.1', npm: '>=6.14.0'}
     hasBin: true
@@ -1991,7 +1991,7 @@ packages:
       shikiji: 0.9.19
       string-width: 7.0.0
       strip-ansi: 7.1.0
-      tsconfck: 3.0.0(typescript@5.4.4)
+      tsconfck: 3.0.0(typescript@5.4.5)
       unist-util-visit: 5.0.0
       vfile: 6.0.1
       vite: 5.2.8
@@ -4884,7 +4884,7 @@ packages:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
     dev: false
 
-  /tsconfck@3.0.0(typescript@5.4.4):
+  /tsconfck@3.0.0(typescript@5.4.5):
     resolution: {integrity: sha512-w3wnsIrJNi7avf4Zb0VjOoodoO0woEqGgZGQm+LHH9przdUI+XDKsWAXwxHA1DaRTjeuZNcregSzr7RaA8zG9A==}
     engines: {node: ^18 || >=20}
     hasBin: true
@@ -4894,7 +4894,7 @@ packages:
       typescript:
         optional: true
     dependencies:
-      typescript: 5.4.4
+      typescript: 5.4.5
 
   /tslib@2.6.2:
     resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
@@ -4923,8 +4923,8 @@ packages:
       semver: 7.6.0
     dev: false
 
-  /typescript@5.4.4:
-    resolution: {integrity: sha512-dGE2Vv8cpVvw28v8HCPqyb08EzbBURxDpuhJvTrusShUfGnhHBafDsLdS1EhhxyL6BJQE+2cT3dDPAv+MQ6oLw==}
+  /typescript@5.4.5:
+    resolution: {integrity: sha512-vcI4UpRgg81oIRUFwR0WSIHKt11nJ7SAVlYNIu+QpqeyXP+gpQJy/Z4+F0aGxSE4MqwjyXvW/TzgkLAx2AGHwQ==}
     engines: {node: '>=14.17'}
     hasBin: true
 
@@ -5424,5 +5424,5 @@ packages:
     peerDependencies:
       astro: ^4.0.0
     dependencies:
-      astro: 4.3.3(typescript@5.4.4)
+      astro: 4.3.3(typescript@5.4.5)
     dev: true
