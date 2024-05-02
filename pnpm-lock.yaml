@@ -30,11 +30,11 @@ dependencies:
     specifier: ^1.1.20
     version: 1.1.20
   '@sentry/astro':
-    specifier: ^7.109.0
-    version: 7.109.0(astro@4.3.3)
+    specifier: ^7.113.0
+    version: 7.113.0(astro@4.3.3)
   '@spotlightjs/astro':
     specifier: ^1.0.20
-    version: 1.0.20(@sentry/astro@7.109.0)(astro@4.3.3)
+    version: 1.0.20(@sentry/astro@7.113.0)(astro@4.3.3)
   '@tailwindcss/typography':
     specifier: ^0.5.12
     version: 0.5.12(tailwindcss@3.4.3)
@@ -1383,45 +1383,45 @@ packages:
     requiresBuild: true
     optional: true
 
-  /@sentry-internal/feedback@7.109.0:
-    resolution: {integrity: sha512-EL7N++poxvJP9rYvh6vSu24tsKkOveNCcCj4IM7+irWPjsuD2GLYYlhp/A/Mtt9l7iqO4plvtiQU5HGk7smcTQ==}
+  /@sentry-internal/feedback@7.113.0:
+    resolution: {integrity: sha512-eEmL8QXauUnM3FXGv0GT29RpL0Jo0pkn/uMu3aqjhQo7JKNqUGVYIUxJxiGWbVMbDXqPQ7L66bjjMS3FR1GM2g==}
     engines: {node: '>=12'}
     dependencies:
-      '@sentry/core': 7.109.0
-      '@sentry/types': 7.109.0
-      '@sentry/utils': 7.109.0
+      '@sentry/core': 7.113.0
+      '@sentry/types': 7.113.0
+      '@sentry/utils': 7.113.0
     dev: false
 
-  /@sentry-internal/replay-canvas@7.109.0:
-    resolution: {integrity: sha512-Lh/K60kmloR6lkPUcQP0iamw7B/MdEUEx/ImAx4tUSMrLj+IoUEcq/ECgnnVyQkJq59+8nPEKrVLt7x6PUPEjw==}
+  /@sentry-internal/replay-canvas@7.113.0:
+    resolution: {integrity: sha512-K8uA42aobNF/BAXf14el15iSAi9fonLBUrjZi6nPDq7zaA8rPvfcTL797hwCbqkETz2zDf52Jz7I3WFCshDoUw==}
     engines: {node: '>=12'}
     dependencies:
-      '@sentry/core': 7.109.0
-      '@sentry/replay': 7.109.0
-      '@sentry/types': 7.109.0
-      '@sentry/utils': 7.109.0
+      '@sentry/core': 7.113.0
+      '@sentry/replay': 7.113.0
+      '@sentry/types': 7.113.0
+      '@sentry/utils': 7.113.0
     dev: false
 
-  /@sentry-internal/tracing@7.109.0:
-    resolution: {integrity: sha512-PzK/joC5tCuh2R/PRh+7dp+uuZl7pTsBIjPhVZHMTtb9+ls65WkdZJ1/uKXPouyz8NOo9Xok7aEvEo9seongyw==}
+  /@sentry-internal/tracing@7.113.0:
+    resolution: {integrity: sha512-8MDnYENRMnEfQjvN4gkFYFaaBSiMFSU/6SQZfY9pLI3V105z6JQ4D0PGMAUVowXilwNZVpKNYohE7XByuhEC7Q==}
     engines: {node: '>=8'}
     dependencies:
-      '@sentry/core': 7.109.0
-      '@sentry/types': 7.109.0
-      '@sentry/utils': 7.109.0
+      '@sentry/core': 7.113.0
+      '@sentry/types': 7.113.0
+      '@sentry/utils': 7.113.0
     dev: false
 
-  /@sentry/astro@7.109.0(astro@4.3.3):
-    resolution: {integrity: sha512-1C+5w0LJLwzA1tD0qbhFCvIzI2zD997EvfXfgwPRR7u5uBrtpWKNK4h8l48CZQl7zKp04zFNeS3wIc9aUI8iCA==}
+  /@sentry/astro@7.113.0(astro@4.3.3):
+    resolution: {integrity: sha512-hKDeQ9NnTyyJsFAZEwtvYZOf49eMgm+JYz7tM+NJJKnamVF7gqz+XOcX/bHJpbblKkcryLBDOskTCklVCWp9eQ==}
     engines: {node: '>=18.14.1'}
     peerDependencies:
       astro: '>=3.x || >=4.0.0-beta'
     dependencies:
-      '@sentry/browser': 7.109.0
-      '@sentry/core': 7.109.0
-      '@sentry/node': 7.109.0
-      '@sentry/types': 7.109.0
-      '@sentry/utils': 7.109.0
+      '@sentry/browser': 7.113.0
+      '@sentry/core': 7.113.0
+      '@sentry/node': 7.113.0
+      '@sentry/types': 7.113.0
+      '@sentry/utils': 7.113.0
       '@sentry/vite-plugin': 2.14.0
       astro: 4.3.3(typescript@5.4.4)
     transitivePeerDependencies:
@@ -1434,17 +1434,18 @@ packages:
     engines: {node: '>= 14'}
     dev: false
 
-  /@sentry/browser@7.109.0:
-    resolution: {integrity: sha512-yx+OFG+Ab9qUDDgV9ZDv8M9O9Mqr0fjKta/LMlWALYLjzkMvxsPlRPFj7oMBlHqOTVLDeg7lFYmsA8wyWQ8Z8g==}
+  /@sentry/browser@7.113.0:
+    resolution: {integrity: sha512-PdyVHPOprwoxGfKGsP2dXDWO0MBDW1eyP7EZlfZvM1A4hjk6ZRNfCv30g+TrqX4hiZDKzyqN3+AdP7N/J2IX0Q==}
     engines: {node: '>=8'}
     dependencies:
-      '@sentry-internal/feedback': 7.109.0
-      '@sentry-internal/replay-canvas': 7.109.0
-      '@sentry-internal/tracing': 7.109.0
-      '@sentry/core': 7.109.0
-      '@sentry/replay': 7.109.0
-      '@sentry/types': 7.109.0
-      '@sentry/utils': 7.109.0
+      '@sentry-internal/feedback': 7.113.0
+      '@sentry-internal/replay-canvas': 7.113.0
+      '@sentry-internal/tracing': 7.113.0
+      '@sentry/core': 7.113.0
+      '@sentry/integrations': 7.113.0
+      '@sentry/replay': 7.113.0
+      '@sentry/types': 7.113.0
+      '@sentry/utils': 7.113.0
     dev: false
 
   /@sentry/bundler-plugin-core@2.14.0:
@@ -1454,8 +1455,8 @@ packages:
       '@babel/core': 7.18.5
       '@sentry/babel-plugin-component-annotate': 2.14.0
       '@sentry/cli': 2.28.0
-      '@sentry/node': 7.109.0
-      '@sentry/utils': 7.109.0
+      '@sentry/node': 7.113.0
+      '@sentry/utils': 7.113.0
       dotenv: 16.4.1
       find-up: 5.0.0
       glob: 9.3.2
@@ -1552,44 +1553,55 @@ packages:
       - supports-color
     dev: false
 
-  /@sentry/core@7.109.0:
-    resolution: {integrity: sha512-xwD4U0IlvvlE/x/g/W1I8b4Cfb16SsCMmiEuBf6XxvAa3OfWBxKoqLifb3GyrbxMC4LbIIZCN/SvLlnGJPgszA==}
+  /@sentry/core@7.113.0:
+    resolution: {integrity: sha512-pg75y3C5PG2+ur27A0Re37YTCEnX0liiEU7EOxWDGutH17x3ySwlYqLQmZsFZTSnvzv7t3MGsNZ8nT5O0746YA==}
     engines: {node: '>=8'}
     dependencies:
-      '@sentry/types': 7.109.0
-      '@sentry/utils': 7.109.0
+      '@sentry/types': 7.113.0
+      '@sentry/utils': 7.113.0
     dev: false
 
-  /@sentry/node@7.109.0:
-    resolution: {integrity: sha512-tqMNAES4X/iBl1eZRCmc29p//0id01FBLEiesNo5nk6ECl6/SaGMFAEwu1gsn90h/Bjgr04slwFOS4cR45V2PQ==}
+  /@sentry/integrations@7.113.0:
+    resolution: {integrity: sha512-w0sspGBQ+6+V/9bgCkpuM3CGwTYoQEVeTW6iNebFKbtN7MrM3XsGAM9I2cW1jVxFZROqCBPFtd2cs5n0j14aAg==}
     engines: {node: '>=8'}
     dependencies:
-      '@sentry-internal/tracing': 7.109.0
-      '@sentry/core': 7.109.0
-      '@sentry/types': 7.109.0
-      '@sentry/utils': 7.109.0
+      '@sentry/core': 7.113.0
+      '@sentry/types': 7.113.0
+      '@sentry/utils': 7.113.0
+      localforage: 1.10.0
     dev: false
 
-  /@sentry/replay@7.109.0:
-    resolution: {integrity: sha512-hCDjbTNO7ErW/XsaBXlyHFsUhneyBUdTec1Swf98TFEfVqNsTs6q338aUcaR8dGRLbLrJ9YU9D1qKq++v5h2CA==}
+  /@sentry/node@7.113.0:
+    resolution: {integrity: sha512-Vam4Ia0I9fhVw8GJOzcLP7MiiHJSKl8L9LzLMMLG3+2/dFnDQOyS7sOfk3GqgpwzqPiusP9vFu7CFSX7EMQbTg==}
+    engines: {node: '>=8'}
+    dependencies:
+      '@sentry-internal/tracing': 7.113.0
+      '@sentry/core': 7.113.0
+      '@sentry/integrations': 7.113.0
+      '@sentry/types': 7.113.0
+      '@sentry/utils': 7.113.0
+    dev: false
+
+  /@sentry/replay@7.113.0:
+    resolution: {integrity: sha512-UD2IaphOWKFdeGR+ZiaNAQ+wFsnwbJK6PNwcW6cHmWKv9COlKufpFt06lviaqFZ8jmNrM4H+r+R8YVTrqCuxgg==}
     engines: {node: '>=12'}
     dependencies:
-      '@sentry-internal/tracing': 7.109.0
-      '@sentry/core': 7.109.0
-      '@sentry/types': 7.109.0
-      '@sentry/utils': 7.109.0
+      '@sentry-internal/tracing': 7.113.0
+      '@sentry/core': 7.113.0
+      '@sentry/types': 7.113.0
+      '@sentry/utils': 7.113.0
     dev: false
 
-  /@sentry/types@7.109.0:
-    resolution: {integrity: sha512-egCBnDv3YpVFoNzRLdP0soVrxVLCQ+rovREKJ1sw3rA2/MFH9WJ+DZZexsX89yeAFzy1IFsCp7/dEqudusml6g==}
+  /@sentry/types@7.113.0:
+    resolution: {integrity: sha512-PJbTbvkcPu/LuRwwXB1He8m+GjDDLKBtu3lWg5xOZaF5IRdXQU2xwtdXXsjge4PZR00tF7MO7X8ZynTgWbYaew==}
     engines: {node: '>=8'}
     dev: false
 
-  /@sentry/utils@7.109.0:
-    resolution: {integrity: sha512-3RjxMOLMBwZ5VSiH84+o/3NY2An4Zldjz0EbfEQNRY9yffRiCPJSQiCJID8EoylCFOh/PAhPimBhqbtWJxX6iw==}
+  /@sentry/utils@7.113.0:
+    resolution: {integrity: sha512-nzKsErwmze1mmEsbW2AwL2oB+I5v6cDEJY4sdfLekA4qZbYZ8pV5iWza6IRl4XfzGTE1qpkZmEjPU9eyo0yvYw==}
     engines: {node: '>=8'}
     dependencies:
-      '@sentry/types': 7.109.0
+      '@sentry/types': 7.113.0
     dev: false
 
   /@sentry/vite-plugin@2.14.0:
@@ -1603,13 +1615,13 @@ packages:
       - supports-color
     dev: false
 
-  /@spotlightjs/astro@1.0.20(@sentry/astro@7.109.0)(astro@4.3.3):
+  /@spotlightjs/astro@1.0.20(@sentry/astro@7.113.0)(astro@4.3.3):
     resolution: {integrity: sha512-3j4GqodpdaNPcsP2KbQylg2dF2nlRLe1z8UH/TgWx1MZJM16V2WP474nHUeP54kVmBaFwaJmF9OCkCMBqfKYfw==}
     peerDependencies:
       '@sentry/astro': '>=7.84.0'
       astro: '>=3.4.0 || >=4.0.0-beta'
     dependencies:
-      '@sentry/astro': 7.109.0(astro@4.3.3)
+      '@sentry/astro': 7.113.0(astro@4.3.3)
       '@spotlightjs/overlay': 1.8.3
       '@spotlightjs/sidecar': 1.4.0
       astro: 4.3.3(typescript@5.4.4)
@@ -3060,6 +3072,10 @@ packages:
   /ieee754@1.2.1:
     resolution: {integrity: sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==}
 
+  /immediate@3.0.6:
+    resolution: {integrity: sha512-XXOFtyqDjNDAQxVfYxuF7g9Il/IbWmmlQg2MYKOH8ExIT1qg6xc4zyS3HaEEATgs1btfzxq15ciUiY7gjSXRGQ==}
+    dev: false
+
   /import-meta-resolve@4.0.0:
     resolution: {integrity: sha512-okYUR7ZQPH+efeuMJGlq4f8ubUgO50kByRPyt/Cy1Io4PSRsPjxME+YlVaCOx+NIToW7hCsZNFJyTPFFKepRSA==}
 
@@ -3216,6 +3232,12 @@ packages:
     resolution: {integrity: sha512-Y+60/zizpJ3HRH8DCss+q95yr6145JXZo46OTpFvDZWLfRCE4qChOyk1b26nMaNpfHHgxagk9dXT5OP0Tfe+dQ==}
     dev: false
 
+  /lie@3.1.1:
+    resolution: {integrity: sha512-RiNhHysUjhrDQntfYSfY4MU24coXXdEOgw9WGcKHNeEwffDYbF//u87M1EWaMGzuFoSbqW0C9C6lEEhDOAswfw==}
+    dependencies:
+      immediate: 3.0.6
+    dev: false
+
   /lilconfig@2.1.0:
     resolution: {integrity: sha512-utWOt/GHzuUxnLKxB6dk81RoOeoNeHgbrXiuGk4yyF5qlRz+iIVWu56E2fqGHFrXz0QNUhLB/8nKqvRH66JKGQ==}
     engines: {node: '>=10'}
@@ -3250,6 +3272,12 @@ packages:
     dependencies:
       mlly: 1.5.0
       pkg-types: 1.0.3
+    dev: false
+
+  /localforage@1.10.0:
+    resolution: {integrity: sha512-14/H1aX7hzBBmmh7sGPd+AOMkkIrHM3Z1PAyGgZigA1H1p5O5ANnMyWzvpAETtG68/dC4pC0ncy3+PPGzXZHPg==}
+    dependencies:
+      lie: 3.1.1
     dev: false
 
   /locate-path@5.0.0:
