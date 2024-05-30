@@ -1,0 +1,16 @@
+{
+	"images2": [
+		{
+			"title": "About us",
+			"image": "/about"
+		},
+		{
+			"title": "Blog",
+			"image": "/posts"
+		},
+		{
+			"title": "Contact",
+			"image": "/contact"
+		}
+	]
+}

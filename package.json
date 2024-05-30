@@ -13,30 +13,51 @@
 	},
 	"dependencies": {
 		"@appnest/masonry-layout": "^2.2.3",
+<<<<<<< HEAD
 		"@astrojs/check": "^0.5.10",
 		"@astrojs/rss": "^4.0.5",
 		"@astrojs/sitemap": "^3.1.2",
+=======
+		"@astrojs/check": "^0.7.0",
+		"@astrojs/rss": "^4.0.6",
+		"@astrojs/sitemap": "^3.1.5",
+>>>>>>> bf8545c (Update packages)
 		"@astrojs/tailwind": "^5.1.0",
-		"@fontsource-variable/inter": "^5.0.17",
-		"@iconify-json/heroicons": "^1.1.20",
+		"@fontsource-variable/inter": "^5.0.18",
+		"@iconify-json/heroicons": "^1.1.21",
 		"@iconify-json/ri": "^1.1.20",
+<<<<<<< HEAD
 		"@sentry/astro": "^7.109.0",
 		"@spotlightjs/astro": "^1.0.20",
 		"@tailwindcss/typography": "^0.5.12",
 		"astro": "^4.3.3",
 		"astro-icon": "^1.1.0",
 		"astro-meta-tags": "^0.2.2",
+=======
+		"@sentry/astro": "^8.7.0",
+		"@spotlightjs/astro": "^1.0.20",
+		"@tailwindcss/typography": "^0.5.13",
+		"astro": "^4.9.2",
+		"astro-icon": "^1.1.0",
+		"astro-meta-tags": "^0.3.0",
+>>>>>>> bf8545c (Update packages)
 		"astro-robots-txt": "^1.0.0",
 		"astro-seo": "^0.8.3",
-		"photoswipe": "^5.4.3",
+		"photoswipe": "^5.4.4",
 		"photoswipe-dynamic-caption-plugin": "^1.2.7",
+<<<<<<< HEAD
 		"sharp": "^0.33.3",
 		"tailwindcss": "^3.4.3",
 		"typescript": "^5.4.4"
+=======
+		"sharp": "^0.33.4",
+		"tailwindcss": "^3.4.3",
+		"typescript": "^5.4.5"
+>>>>>>> bf8545c (Update packages)
 	},
 	"devDependencies": {
 		"astro-debugcss": "github:jllahi/astro-debugcss",
-		"rimraf": "^5.0.5",
-		"vite-plugin-mkcert": "^1.17.4"
+		"rimraf": "^5.0.7",
+		"vite-plugin-mkcert": "^1.17.5"
 	}
 }
