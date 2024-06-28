@@ -6,10 +6,7 @@ import TailwindIndicator from '@/components/utils/TailwindIndicator.astro'
 import { type Props as SEOProps, SEO } from 'astro-seo'
 import { ViewTransitions } from 'astro:transitions'
 import '@fontsource-variable/inter'
-import ogImage from '@/assets/images/astrokit-gallery-og.jpg'
-// import PhotoSwipeLightbox from 'photoswipe/lightbox'
-// import PhotoSwipe from 'photoswipe'
-// import 'photoswipe/style.css'
+import ogImage from '@/assets/images/open-graph.jpg'
 
 interface Props {
 	seo?: SEOProps
@@ -24,7 +21,6 @@ const { seo } = Astro.props
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<link rel="sitemap" href="/sitemap-index.xml" />
 		<SEO
 			title={seo?.title ?? site.title}
 			titleTemplate=`%s — ${site.title}`
@@ -45,13 +41,13 @@ const { seo } = Astro.props
 	</head>
 	<body
 		class:list={[
-			'p-4 h-screen flex flex-col items-start justify-between font-sans mx-auto transition-all duration-300',
-			'text-font-color bg-background-color',
-			'dark:text-font-color dark:bg-background-color',
+			'mx-auto flex h-screen flex-col items-start justify-between p-4 font-sans transition-all duration-300',
+			'bg-background-color text-font-color',
+			'dark:bg-background-color dark:text-font-color',
 		]}
 	>
 		<Header />
-		<main class="flex-grow w-full">
+		<main class="w-full flex-grow">
 			<slot />
 		</main>
 		<Footer />
@@ -59,7 +55,7 @@ const { seo } = Astro.props
 		<style is:global>
 			:root {
 				--font-color: theme('colors.teal.100');
-				--background-color: theme('colors.slate.950');
+				--background-color: theme('colors.neutral.900');
 			}
 			html.dark {
 				--font-color: theme('colors.slate.900');

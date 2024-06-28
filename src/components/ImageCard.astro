@@ -44,14 +44,14 @@ const imagePath = await getImage({
 					alt={image.data.title}
 					width={520}
 					height={520}
-					class="w-full hover:transition-all hover:scale-105 object-cover duration-1000 hover:duration-1000 ease-in-out "
+					class="w-full object-cover duration-1000 ease-in-out hover:scale-105 hover:transition-all hover:duration-1000"
 					transition:name={`image-${image.data.title}`}
 				/>
 			</div>
 		)
 	}
 	<div class="pswp-caption-content">
-		<strong class="text-base font-light text-balance">
+		<strong class="text-balance text-base font-light">
 			{image.data.title}
 		</strong>
 		<!-- <div class="text-sm text-font-color-20 text-pretty">
@@ -120,6 +120,7 @@ const imagePath = await getImage({
 		type: 'below',
 		mobileCaptionOverlapRatio: 1,
 	})
+	import.meta.env.DEV && console.log(captionPlugin)
 
 	lightbox.init()
 </script>

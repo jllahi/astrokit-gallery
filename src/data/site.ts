@@ -3,7 +3,7 @@ interface Site {
 	description: string
 	language: string
 	logo?: {
-		src: "./src/assets/icons/logo.svg",
+		src: './src/assets/icons/logo.svg'
 		alt: string
 	}
 	opengraph: {
@@ -14,14 +14,14 @@ interface Site {
 }
 
 export const site: Site = {
-	title: "AstroKit Gallery",
-	description: "We are all made from stars",
-	language: "es-ES",
+	title: 'AstroKit Gallery',
+	description: 'We are all made from stars',
+	language: 'es-ES',
 	opengraph: {
-		title: "AstroKit Gallery",
-		description: "We are all made from stars",
-		image: "./src/assets/images/astrokit-gallery-og.jpg"
-	}
+		title: 'AstroKit Gallery',
+		description: 'We are all made from stars',
+		image: './src/assets/images/astrokit-gallery-og.jpg',
+	},
 }
 
 export default site

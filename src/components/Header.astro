@@ -1,19 +1,20 @@
 ---
 import site from '@/data/site'
-// import Navigation from '@/components/Navigation.astro'
-// import ResponsiveMenu from './ResponsiveMenu.astro'
+// import ThemeToggle from '@/components/utils/ThemeToggle.astro'
 ---
 
 <header
 	class:list={[
-		'flex flex-row justify-between w-full',
-		'border-b mb-4 pb-2 border-font-color',
+		'flex w-full flex-row justify-between',
+		'mb-4 border-b border-font-color pb-2',
 	]}
 >
 	<a href="/"
-		><h2 class="font-black text-2xl font-logo uppercase no-underline">
+		><h2 class="font-logo text-2xl font-black uppercase no-underline">
 			{site.title}
 		</h2></a
 	>
-	<!-- <ResponsiveMenu /> -->
+	{
+		// <ThemeToggle />
+	}
 </header>

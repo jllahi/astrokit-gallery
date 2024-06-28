@@ -9,7 +9,9 @@ interface Props {
 const { images } = Astro.props
 ---
 
-<!-- <ul id="astrokit-gallery" class="grid grid-cols-3 gap-4"> --><!-- <div id="astrokit-gallery" class="masonry"> -->
+{
+	// <ul id="astrokit-gallery" class="masonry grid grid-cols-3 gap-4"> -->
+}
 <masonry-layout id="astrokit-gallery" gap="16">
 	{
 		images.map((image) => (
@@ -19,8 +21,11 @@ const { images } = Astro.props
 		))
 	}
 </masonry-layout>
-<!-- </div> -->
+{
+	// </div>
+}
 
 <script>
 	import { MasonryLayout } from '@appnest/masonry-layout'
+	new MasonryLayout()
 </script>

@@ -13,7 +13,6 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<'images'>
 
 const image = Astro.props
-// const { Content } = await image.render()
 ---
 
 <Layout
@@ -30,7 +29,6 @@ const image = Astro.props
 	}}
 	{...image.data}
 >
-	<!-- <Content /> -->
 	<p>{image.data.title}</p>
 	{
 		image.data.image && (
@@ -39,7 +37,7 @@ const image = Astro.props
 				alt={image.data.description ?? image.data.title}
 				width={image.data.image.width}
 				height={image.data.image.height}
-				class="object-cover"
+				class="my-4 object-cover"
 				transition:name={`image-${image.data.title}`}
 			/>
 		)

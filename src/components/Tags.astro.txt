@@ -1,0 +1,30 @@
+---
+import { slugify } from '@/utils/content.ts.txt'
+import Link from '@/components/ui/Link.astro'
+import { Icon } from 'astro-icon/components'
+
+interface Props {
+	tags: string[] | undefined
+}
+
+const { tags } = Astro.props
+---
+
+{
+	tags && (
+		<ul class="flex flex-row gap-2 place-items-center">
+			<Icon name="ri:price-tag-3-line" title="Tags" />
+			{tags.map((tag) => (
+				<li class="inline">
+					<Link
+						size="sm"
+						class="uppercase text-sm"
+						href={`/tag/${slugify(tag)}`}
+					>
+						{tag}
+					</Link>
+				</li>
+			))}
+		</ul>
+	)
+}

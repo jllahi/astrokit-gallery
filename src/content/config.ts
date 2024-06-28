@@ -2,7 +2,7 @@ import { defineCollection, z } from 'astro:content'
 // import { rssSchema } from '@astrojs/rss';
 
 const images = defineCollection({
-	type: 'data',
+	type: 'content',
 	// Type-check frontmatter using a schema
 	schema: ({ image }) =>
 		z.object({

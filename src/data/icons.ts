@@ -7,11 +7,11 @@ interface Icon {
 
 export const icons: Icon[] = [
 	{
-		collection: "ri",
-		title: "Date",
-		id: "date",
-		name: "calendar-2-line"
-	}
+		collection: 'ri',
+		title: 'Date',
+		id: 'date',
+		name: 'calendar-2-line',
+	},
 ]
 
 export default icons
