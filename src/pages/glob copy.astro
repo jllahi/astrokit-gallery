@@ -1,0 +1,62 @@
+---
+import type { ImageMetadata } from 'astro'
+import { Image } from 'astro:assets'
+
+import Layout from '@/layouts/Layout.astro'
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+	// '/src/content/images/**/*.{jpeg,jpg,png,gif}'
+	'/src/content/images/*.{jpeg,jpg,png,gif}'
+)
+// console.log(images)
+
+// async function imagePath(imageSrc: string) {
+// 	const imagePath = await getImage({
+// 		src: imageSrc,
+// 		format: 'webp',
+// 		width: '3800',
+// 	})
+// 	return imagePath
+// }
+
+// async function printImages() {
+// 	for (const [path, resolver] of Object.entries(images)) {
+// 		const imageModule = await resolver()
+// 		console.log(`Path: ${path}`)
+// 		console.log(`Image Metadata:`, imageModule.default)
+// 	}
+// }
+
+// const imagesMetadataArray = []
+
+// export async function getImagesMetadata(): Promise<string[]> {
+// 	for (const [path, resolver] of Object.entries(images)) {
+// 		const imageModule = await resolver()
+// 		// imagesMetadataArray.push({ path, metadata: imageModule.default })
+// 		imagesMetadataArray.push(imageModule.default)
+// 		// imagesMetadataArray.push(path)
+// 	}
+
+// 	return imagesMetadataArray
+// }
+---
+
+<Layout>
+	{
+		// Object.entries(images).map(async ([path, resolver]) => {
+		Object.entries(images).map(async (resolver) => {
+			const imageModule = await resolver()
+			// imagesMetadataArray.push({ path, metadata: imageModule.default })
+			// imagesMetadataArray.push(imageModule.default)
+			// imagesMetadataArray.push(path)
+			return (
+				<Image
+					src={imageModule.default}
+					width={200}
+					height={200}
+					alt="Nothing here"
+				/>
+			)
+		})
+	}
+</Layout>

@@ -1,0 +1,49 @@
+---
+import type { CollectionEntry, ContentCollectionKey } from 'astro:content'
+// import ImageCard from '@/components/ImageCard.astro'
+import { Image, getImage } from 'astro:assets'
+
+// interface Props {
+// 	images: CollectionEntry<ContentCollectionKey>[]
+// }
+
+// const { images } = Astro.props
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+	// '/src/content/images/**/*.{jpeg,jpg,png,gif}'
+	'/src/content/images/*.{jpeg,jpg,png,gif}'
+)
+
+const imagesMetadataArray = []
+---
+
+{
+	// <ul id="astrokit-gallery" class="masonry grid grid-cols-3 gap-4"> -->
+}
+<masonry-layout id="astrokit-gallery" gap="16">
+	{
+		Object.entries(images).map(async ([path, resolver]) => {
+			const imageModule = await resolver()
+			// imagesMetadataArray.push({ path, metadata: imageModule.default })
+			imagesMetadataArray.push(imageModule.default)
+			// imagesMetadataArray.push(path)
+			return <Image src={imageModule.default} width={400} height={400} alt="" />
+		})
+	}
+
+	<!-- {
+		images.map((image) => (
+			// <li>
+			<ImageCard image={image} />
+			// </li>
+		))
+	} -->
+</masonry-layout>
+{
+	// </div>
+}
+
+<script>
+	import { MasonryLayout } from '@appnest/masonry-layout'
+	new MasonryLayout()
+</script>

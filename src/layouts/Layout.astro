@@ -62,5 +62,40 @@ const { seo } = Astro.props
 				--background-color: theme('colors.teal.50');
 			}
 		</style>
+		<script>
+			document.addEventListener('astro:after-swap', loadingEagerImages)
+
+			// document.addEventListener('DOMContentLoaded', function () {
+			function loadingEagerImages() {
+				document.addEventListener('DOMContentLoaded', function () {
+					// Define the callback function for the Intersection Observer
+					function onIntersection(entries, observer) {
+						entries.forEach((entry) => {
+							if (entry.isIntersecting) {
+								entry.target.setAttribute('loading', 'eager')
+								observer.unobserve(entry.target) // Unobserve the image since we don't need to observe it anymore
+							}
+						})
+					}
+
+					// Create an Intersection Observer
+					let observer = new IntersectionObserver(onIntersection, {
+						root: null, // Use the viewport as the root
+						rootMargin: '0px',
+						threshold: 0.1, // Trigger the callback when 10% of the image is in the viewport
+					})
+
+					// Select all img elements
+					let images = document.querySelectorAll('img')
+
+					// Apply the observer to each img element
+					images.forEach((image) => {
+						observer.observe(image)
+					})
+				})
+			}
+			document.addEventListener('astro:after-swap', loadingEagerImages)
+			loadingEagerImages()
+		</script>
 	</body>
 </html>

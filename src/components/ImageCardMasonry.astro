@@ -42,12 +42,10 @@ console.log(imagePath)
 				<Image
 					src={image.data.image}
 					alt={image.data.title}
-					width={600}
-					height={600}
+					width={520}
+					height={520}
 					class:list={[
-						'w-full object-cover duration-1000 ease-in-out',
-						'hover:scale-105 hover:transition-all hover:duration-1000',
-						'aspect-square',
+						'w-full object-cover duration-1000 ease-in-out hover:scale-105 hover:transition-all hover:duration-1000',
 					]}
 					transition:name={`image-${image.data.title}`}
 					decoding={'auto'}

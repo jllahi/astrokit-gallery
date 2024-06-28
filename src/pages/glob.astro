@@ -1,0 +1,14 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import ImageList from '@/components/ImageListGlob.astro'
+---
+
+<Layout
+	seo={{
+		title: 'Simple gallery',
+	}}
+>
+	<h1 class="font-heading my-8 hidden text-5xl font-black">Images</h1>
+	<ImageList />
+	<!-- <Pagination {page} /> -->
+</Layout>

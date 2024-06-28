@@ -1,0 +1,31 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import ImageListMasonry from '@/components/ImageListMasonry.astro'
+import { type GetStaticPaths, type Page } from 'astro'
+import { type CollectionEntry, getCollection } from 'astro:content'
+// import { filterContent } from '@/utils/content.ts.txt'
+// import Pagination from '@/components/utils/Pagination.astro'
+
+export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
+	const images = await getCollection('images')
+	// const filteredPosts = filterContent(images, { sortByDate: false })
+
+	return paginate(images, { pageSize: 32 })
+}
+
+interface Props {
+	page: Page<CollectionEntry<'images'>>
+}
+
+const { page } = Astro.props
+---
+
+<Layout
+	seo={{
+		title: 'Masonry',
+	}}
+>
+	<h1 class="font-heading my-8 hidden text-5xl font-black">Masonry</h1>
+	<ImageListMasonry images={page.data} />
+	<!-- <Pagination {page} /> -->
+</Layout>

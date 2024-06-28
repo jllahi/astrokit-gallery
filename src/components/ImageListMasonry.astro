@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry, ContentCollectionKey } from 'astro:content'
-import ImageCard from '@/components/ImageCard.astro'
+import ImageCardMasonry from '@/components/ImageCardMasonry.astro'
 
 interface Props {
 	images: CollectionEntry<ContentCollectionKey>[]
@@ -12,23 +12,20 @@ const { images } = Astro.props
 {
 	// <ul id="astrokit-gallery" class="masonry grid grid-cols-3 gap-4"> -->
 }
-<secion
-	id="astrokit-gallery"
-	class="grid gap-4 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4"
->
+<masonry-layout id="astrokit-gallery" gap="16">
 	{
 		images.map((image) => (
 			// <li>
-			<ImageCard image={image} />
+			<ImageCardMasonry image={image} />
 			// </li>
 		))
 	}
-</secion>
+</masonry-layout>
 {
 	// </div>
 }
 
-<!-- <script>
+<script>
 	import { MasonryLayout } from '@appnest/masonry-layout'
 	new MasonryLayout()
-</script> -->
+</script>
