@@ -62,14 +62,10 @@ const { base64, color, img } = await getImage(src.fsPath)
 				aria-hidden
 				style={{ backgroundColor: color.hex }}
 				class:list={[
-					'absolute',
-					'inset-0',
-					'w-full',
-					'h-full',
-					'transform',
-					'scale-150',
-					'filter',
-					'blur-2xl',
+					'absolute inset-0',
+					'w-full h-full',
+					'transform scale-150',
+					'filter blur-2xl',
 					'z-[-1]'
 				]}
 			/>
@@ -82,14 +78,10 @@ const { base64, color, img } = await getImage(src.fsPath)
 				alt=""
 				src={base64}
 				class:list={[
-					'absolute',
-					'inset-0',
-					'w-full',
-					'h-full',
-					'transform',
-					'scale-150',
-					'filter',
-					'blur-2xl',
+					'absolute inset-0',
+					'w-full h-full',
+					'transform scale-150',
+					'filter blur-2xl',
 					'z-[-1]'
 				]}
 			/>
@@ -101,7 +93,7 @@ const { base64, color, img } = await getImage(src.fsPath)
 		widths={[520, 840, 1200]}
 		quality={95}
 		sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px`}
-		class="w-full rounded object-cover"
+		class="w-full rounded object-cover aspect-square"
 		{...props}
 	/>
 </div>
