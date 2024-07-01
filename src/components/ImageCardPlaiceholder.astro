@@ -1,15 +1,17 @@
 ---
+import fs from 'node:fs/promises'
+import { getPlaiceholder } from 'plaiceholder'
 import type { HTMLAttributes } from 'astro/types'
 import type { CollectionEntry, ContentCollectionKey } from 'astro:content'
 import { Image, getImage } from 'astro:assets'
 // import { formatDate } from '@/utils/content'
-// import 'photoswipe/style.css'
+import 'photoswipe/style.css'
 
 interface Props extends HTMLAttributes<'a'> {
 	image: CollectionEntry<ContentCollectionKey>
 }
 
-const { image, ...props } = Astro.props
+const { image, type = 'base64', ...props } = Astro.props
 
 const imagePath = await getImage({
 	src: image.data.image,
@@ -17,12 +19,32 @@ const imagePath = await getImage({
 	width: '3800',
 })
 // console.log(imagePath)
+
+const getImageHolder = async (image) => {
+	console.log('IMAGE: ', image)
+	// const buffer = await fetch(src).then(async (res) => Buffer.from(await res.arrayBuffer()))
+	const buffer = await fs.readFile(image.fsPath)
+	// const buffer = await fs.readFile(path.join('./public', src))
+
+	const {
+		metadata: { height, width, format },
+		...plaiceholder
+	} = await getPlaiceholder(buffer, { size: 10 })
+
+	return {
+		...plaiceholder,
+		img: { height, width, format },
+	}
+}
+
+const { base64, color, img } = await getImageHolder(image.data.image)
+console.log('BASE64: ', base64)
 ---
 
 <a
 	href={`/image/${image.slug}`}
 	class:list={[
-		'flex w-full flex-row gap-4 bg-neutral-800',
+		'flex flex-row gap-4',
 		// 'rounded py-1 px-2',
 		// 'hover:bg-font-color hover:text-background-color',
 	]}
@@ -36,26 +58,49 @@ const imagePath = await getImage({
 	data-cropped="true"
 >
 	<h2 class="hidden">{image.data.title}</h2>
-	{
-		image.data.image && (
-			<div class="overflow-hidden">
-				<Image
-					src={image.data.image}
-					alt={image.data.title}
-					width={600}
-					height={600}
-					class:list={[
-						'w-full object-cover duration-1000 ease-in-out',
-						'hover:scale-105 hover:transition-all hover:duration-1000',
-						'aspect-square',
-					]}
-					transition:name={`image-${image.data.title}`}
-					decoding={'auto'}
-					fetchpriority={'auto'}
-				/>
-			</div>
-		)
-	}
+	<div
+		id="imageContainer"
+		class:list={[
+			'relative block aspect-square overflow-hidden outline outline-1 outline-cyan-100',
+		]}
+	>
+		{
+			image.data.image && (
+				<>
+					{type == 'base64' && (
+						<img
+							aria-hidden="true"
+							alt=""
+							src={base64}
+							class:list={[
+								'absolute inset-0',
+								'h-full w-full',
+								'scale-150 transform',
+								'blur-2xl filter',
+								'z-[-1]',
+							]}
+						/>
+					)}
+					<div class="overflow-hidden">
+						<Image
+							src={image.data.image}
+							alt={image.data.title}
+							width={600}
+							height={600}
+							class:list={[
+								'w-full object-cover duration-1000 ease-in-out',
+								'hover:scale-105 hover:transition-all hover:duration-1000',
+								'aspect-square',
+							]}
+							transition:name={`image-${image.data.title}`}
+							decoding={'auto'}
+							fetchpriority={'auto'}
+						/>
+					</div>
+				</>
+			)
+		}
+	</div>
 	<div class="pswp-caption-content">
 		<strong class="text-balance text-base font-light">
 			{image.data.title}
@@ -71,8 +116,8 @@ const imagePath = await getImage({
 	import PhotoSwipe from 'photoswipe'
 	import PhotoSwipeLightbox from 'photoswipe/lightbox'
 	import PhotoSwipeDynamicCaption from 'photoswipe-dynamic-caption-plugin'
-	import 'photoswipe/style.css'
-	import 'photoswipe-dynamic-caption-plugin/photoswipe-dynamic-caption-plugin.css'
+	// import 'photoswipe/style.css'
+	// import 'photoswipe-dynamic-caption-plugin/photoswipe-dynamic-caption-plugin.css'
 
 	const smallScreenPadding = {
 		top: 0,

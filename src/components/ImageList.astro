@@ -32,3 +32,67 @@ const { images } = Astro.props
 	import { MasonryLayout } from '@appnest/masonry-layout'
 	new MasonryLayout()
 </script> -->
+
+<script>
+	import PhotoSwipe from 'photoswipe'
+	import PhotoSwipeLightbox from 'photoswipe/lightbox'
+	import PhotoSwipeDynamicCaption from 'photoswipe-dynamic-caption-plugin'
+	// import 'photoswipe/style.css'
+	// import 'photoswipe-dynamic-caption-plugin/photoswipe-dynamic-caption-plugin.css'
+
+	const smallScreenPadding = {
+		top: 0,
+		bottom: 0,
+		left: 0,
+		right: 0,
+	}
+	const largeScreenPadding = {
+		top: 30,
+		bottom: 30,
+		left: 70,
+		right: 70,
+	}
+
+	const lightbox = new PhotoSwipeLightbox({
+		gallery: '#astrokit-gallery',
+		children: 'a',
+		bgOpacity: 0.9,
+		// pswpModule: () => import('photoswipe'),
+		pswpModule: PhotoSwipe,
+		paddingFn: (viewportSize) => {
+			return viewportSize.x < 700 ? smallScreenPadding : largeScreenPadding
+		},
+		// paddingFn: (viewportSize) => {
+		// 	return {
+		// 		top: 30,
+		// 		bottom: 30,
+		// 		left: 70,
+		// 		right: 70,
+		// 	}
+		// },
+	})
+
+	// lightbox.on('uiRegister', function () {
+	// 	lightbox.pswp.ui.registerElement({
+	// 		name: 'copy-link',
+	// 		ariaLabel: 'Copy link',
+	// 		order: 9,
+	// 		isButton: true,
+	// 		html: `<div class="grid place-items-center"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" {...props}><g fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></g></svg></div>`,
+	// 		onClick: (event, el) => {
+	// 			if (confirm('Do you want to toggle zoom?')) {
+	// 				navigator.clipboard.writeText('Hello')
+	// 			}
+	// 		},
+	// 	})
+	// })
+
+	const captionPlugin = new PhotoSwipeDynamicCaption(lightbox, {
+		mobileLayoutBreakpoint: 700,
+		type: 'below',
+		mobileCaptionOverlapRatio: 1,
+	})
+	import.meta.env.DEV && console.log(captionPlugin)
+
+	lightbox.init()
+</script>

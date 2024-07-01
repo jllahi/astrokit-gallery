@@ -1,0 +1,118 @@
+---
+// import path from 'node:path'
+import fs from 'node:fs/promises'
+import { getPlaiceholder } from 'plaiceholder'
+import { Image as ImageAstro } from 'astro:assets'
+// import type { HTMLAttributes } from 'astro/types'
+// import type { ImageMetadata } from 'astro'
+// import type { ImageFunction } from 'astro:content'
+// import type { Code } from 'astro:components'
+// import { cx } from "class-variance-authority";
+
+// type Props = HTMLAttributes<'a'>
+// interface Props extends HTMLAttributes<'img'> {
+interface Props {
+	src: any
+	alt: string
+	type?: 'color' | 'base64'
+}
+
+const getImage = async (src: string) => {
+	// const buffer = await fetch(src).then(async (res) => Buffer.from(await res.arrayBuffer()))
+	const buffer = await fs.readFile(src)
+	// const buffer = await fs.readFile(path.join('./public', src))
+
+	const {
+		metadata: { height, width },
+		...plaiceholder
+	} = await getPlaiceholder(buffer, { size: 10 })
+
+	return {
+		...plaiceholder,
+		img: { src, height, width },
+	}
+}
+
+// const { src, ...attrs } = Astro.props
+const { src, type = 'base64', ...props } = Astro.props
+
+const { base64, color, img } = await getImage(src.fsPath)
+
+const imgWidth = `${img.width}px`
+const imgHeight = `${img.height}px`
+---
+
+<!-- <div
+	aria-hidden
+	style={{ backgroundColor: color.hex }}
+	class:list={[
+		'absolute',
+		'inset-0',
+		'w-full',
+		'h-full',
+		'transform',
+		'scale-150',
+		'filter',
+		'blur-2xl',
+		'z-[-1]'
+	]}
+>
+</div> -->
+<div
+	id="imageContainer"
+	class:list={[
+		'relative block aspect-square overflow-hidden border-2 border-orange-400 outline outline-1 outline-orange-400',
+	]}
+>
+	{
+		type == 'color' && (
+			<div
+				aria-hidden
+				style={{ backgroundColor: color.hex }}
+				class:list={[
+					'absolute inset-0',
+					'h-full w-full',
+					'scale-150 transform',
+					'blur-2xl filter',
+					'z-[-1]',
+				]}
+			/>
+		)
+	}
+	{
+		type == 'base64' && (
+			<img
+				aria-hidden
+				alt=""
+				src={base64}
+				class:list={[
+					'absolute inset-0',
+					'h-full w-full',
+					'scale-150 transform',
+					'blur-2xl filter',
+					'z-[-1]',
+				]}
+			/>
+		)
+	}
+	<ImageAstro
+		{src}
+		title={props.alt}
+		widths={[520, 840, 1200]}
+		quality={95}
+		sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px`}
+		class="aspect-square w-full rounded object-cover"
+		{...props}
+	/>
+</div>
+
+<!-- class="w-full object-cover duration-1000 ease-in-out hover:scale-105 hover:transition-all hover:duration-1000 " -->
+
+<!-- class="aspect-video w-full rounded object-cover" -->
+
+<style define:vars={{ imgWidth, imgHeight }}>
+	#imageContainer {
+		width: var(--imgWidth);
+		height: var(--imgHeight);
+	}
+</style>
