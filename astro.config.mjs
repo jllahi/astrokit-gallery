@@ -7,18 +7,18 @@ import { defineConfig } from 'astro/config'
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://astrokit-gallery.vercel.app',
-	integrations: [
-		// sentry(),
-		// spotlightjs(),
-		tailwind(),
-		// robotsTxt(),
-		icon({
-			iconDir: 'src/assets/icons',
-			include: {
-				heroicons: ['sun', 'moon'],
-			},
-		}),
-		metaTags(),
-	],
+  site: 'https://astrokit-gallery.vercel.app',
+  integrations: [
+    // sentry(),
+    // spotlightjs(),
+    tailwind(),
+    // robotsTxt(),
+    icon({
+      iconDir: 'src/assets/icons',
+      include: {
+        heroicons: ['sun', 'moon'],
+      },
+    }),
+    metaTags(),
+  ],
 })

@@ -3,129 +3,125 @@ import Navigation from './Navigation.astro'
 ---
 
 {
-	(
-		<div class="flex flex-row">
-			<div class="hidden pl-4 lg:block">
-				<Navigation />
-			</div>
-			<div class="block pl-10 lg:hidden" id="burger-menu">
-				<span />
-			</div>
-			<div id="menu" class="flex flex-col justify-center bg-background-color">
-				<Navigation style="vertical" />
-			</div>
-		</div>
-	)
+  (
+    <div class="flex flex-row">
+      <div class="hidden pl-4 lg:block">
+        <Navigation />
+      </div>
+      <div class="block pl-10 lg:hidden" id="burger-menu">
+        <span />
+      </div>
+      <div id="menu" class="flex flex-col justify-center bg-background-color">
+        <Navigation style="vertical" />
+      </div>
+    </div>
+  )
 }
 
 <script is:inline>
-	document
-		.getElementById('burger-menu')
-		.addEventListener('click', clickBurger, false) // function (this) {
+  document.getElementById('burger-menu').addEventListener('click', clickBurger, false) // function (this) {
 
-	function clickBurger() {
-		document.getElementById('burger-menu').classList.toggle('close')
-		document.getElementById('menu').classList.toggle('overlay')
-	}
+  function clickBurger() {
+    document.getElementById('burger-menu').classList.toggle('close')
+    document.getElementById('menu').classList.toggle('overlay')
+  }
 
-	document.addEventListener(
-		'astro:page-load',
-		() => {
-			document
-				.getElementById('burger-menu')
-				.addEventListener('click', clickBurger, false)
-		}
-		// { once: true },
-	)
+  document.addEventListener(
+    'astro:page-load',
+    () => {
+      document.getElementById('burger-menu').addEventListener('click', clickBurger, false)
+    }
+    // { once: true },
+  )
 </script>
 <style>
-	#burger-menu {
-		cursor: pointer;
-		height: 32px;
-		width: 32px;
-		overflow: visible;
-		position: relative;
-		z-index: 2;
-		margin-top: 6px;
-	}
-	#burger-menu span,
-	#burger-menu span:before,
-	#burger-menu span:after {
-		background: var(--font-color);
-		display: block;
-		height: 3px;
-		opacity: 1;
-		position: absolute;
-		transition: 0.3s ease-in-out;
-	}
-	#burger-menu span:before,
-	#burger-menu span:after {
-		content: '';
-	}
-	#burger-menu span {
-		right: 0px;
-		top: 11px;
-		width: 25px;
-	}
-	#burger-menu span:before {
-		right: 0px;
-		top: -8px;
-		width: 16px;
-	}
-	#burger-menu span:after {
-		right: 0px;
-		top: 8px;
-		width: 20px;
-	}
+  #burger-menu {
+    cursor: pointer;
+    height: 32px;
+    width: 32px;
+    overflow: visible;
+    position: relative;
+    z-index: 2;
+    margin-top: 6px;
+  }
+  #burger-menu span,
+  #burger-menu span:before,
+  #burger-menu span:after {
+    background: var(--font-color);
+    display: block;
+    height: 3px;
+    opacity: 1;
+    position: absolute;
+    transition: 0.3s ease-in-out;
+  }
+  #burger-menu span:before,
+  #burger-menu span:after {
+    content: '';
+  }
+  #burger-menu span {
+    right: 0px;
+    top: 11px;
+    width: 25px;
+  }
+  #burger-menu span:before {
+    right: 0px;
+    top: -8px;
+    width: 16px;
+  }
+  #burger-menu span:after {
+    right: 0px;
+    top: 8px;
+    width: 20px;
+  }
 
-	#burger-menu.close span {
-		transform: rotate(-45deg);
-		top: 13px;
-		width: 25px;
-	}
-	#burger-menu.close span:before {
-		top: 0px;
-		transform: rotate(90deg);
-		width: 25px;
-	}
-	#burger-menu.close span:after {
-		top: 0px;
-		left: 0;
-		transform: rotate(90deg);
-		opacity: 0;
-		width: 0;
-	}
+  #burger-menu.close span {
+    transform: rotate(-45deg);
+    top: 13px;
+    width: 25px;
+  }
+  #burger-menu.close span:before {
+    top: 0px;
+    transform: rotate(90deg);
+    width: 25px;
+  }
+  #burger-menu.close span:after {
+    top: 0px;
+    left: 0;
+    transform: rotate(90deg);
+    opacity: 0;
+    width: 0;
+  }
 
-	#menu {
-		z-index: 1;
-		min-width: 100%;
-		min-height: 100%;
-		position: fixed;
-		top: 0;
-		left: 0;
-		height: 0;
-		visibility: hidden;
-		opacity: 0;
-		text-align: center;
-		padding-top: 20px;
-		transition: all 0.3s ease-in-out;
-	}
+  #menu {
+    z-index: 1;
+    min-width: 100%;
+    min-height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 0;
+    visibility: hidden;
+    opacity: 0;
+    text-align: center;
+    padding-top: 20px;
+    transition: all 0.3s ease-in-out;
+  }
 
-	#menu.overlay {
-		visibility: visible;
-		opacity: 1;
-		padding-top: 100px;
-		background: var(--background-color);
-	}
+  #menu.overlay {
+    visibility: visible;
+    opacity: 1;
+    padding-top: 100px;
+    background: var(--background-color);
+  }
 
-	#menu li {
-		list-style: none;
-	}
-	#menu a {
-		color: var(--font-color);
-		display: block;
-		/* font-size: 32px; */
-		margin-bottom: 30px;
-		text-decoration: none;
-	}
+  #menu li {
+    list-style: none;
+  }
+  #menu a {
+    color: var(--font-color);
+    display: block;
+    /* font-size: 32px; */
+    margin-bottom: 30px;
+    text-decoration: none;
+  }
 </style>

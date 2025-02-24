@@ -1,7 +1,6 @@
 ---
-import type { CollectionEntry, ContentCollectionKey } from 'astro:content'
 // import ImageCard from '@/components/ImageCard.astro'
-import { Image, getImage } from 'astro:assets'
+import { Image } from 'astro:assets'
 
 // interface Props {
 // 	images: CollectionEntry<ContentCollectionKey>[]

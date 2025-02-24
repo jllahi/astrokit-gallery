@@ -2,42 +2,37 @@
 // https://docs.astro.build/en/core-concepts/routing/#pagination
 // https://docs.astro.build/en/reference/api-reference/#paginate
 
+import Link from '@/components/Link.astro'
 import type { Page } from 'astro'
 import type { CollectionEntry } from 'astro:content'
-import Link from '@/components/Link.astro'
 
 interface Props {
-	page: Page<CollectionEntry<'images'>>
+  page: Page<CollectionEntry<'images'>>
 }
 
 const { page } = Astro.props
 ---
 
 <div class="my-8 flex w-full flex-row justify-between">
-	<div
-		class:list={[
-			'rounded px-2 py-1',
-			'hover:bg-font-color hover:text-background-color',
-		]}
-	>
-		{
-			page.url.prev && (
-				<Link href={page.url.prev} rel="prev">
-					&lt;&lt; Previous
-				</Link>
-			)
-		}
-	</div>
-	<!-- <div>
+  <div class:list={['rounded px-2 py-1', 'hover:bg-font-color hover:text-background-color']}>
+    {
+      page.url.prev && (
+        <Link href={page.url.prev} rel="prev">
+          &lt;&lt; Previous
+        </Link>
+      )
+    }
+  </div>
+  <!-- <div>
     {page.currentPage}
     </div> -->
-	<div>
-		{
-			page.url.next && (
-				<Link href={page.url.next} rel="next">
-					Next &gt;&gt;
-				</Link>
-			)
-		}
-	</div>
+  <div>
+    {
+      page.url.next && (
+        <Link href={page.url.next} rel="next">
+          Next &gt;&gt;
+        </Link>
+      )
+    }
+  </div>
 </div>

@@ -1,103 +1,103 @@
 ---
-import { site } from '@/data/site'
+import type { Props as SEOProps } from 'astro-seo'
+import ogImage from '@/assets/images/open-graph.jpg'
 import Footer from '@/components/Footer.astro'
 import Header from '@/components/Header.astro'
 import TailwindIndicator from '@/components/utils/TailwindIndicator.astro'
-import { type Props as SEOProps, SEO } from 'astro-seo'
+import { site } from '@/data/site'
+import { SEO } from 'astro-seo'
 import { ViewTransitions } from 'astro:transitions'
 import '@fontsource-variable/inter'
-import ogImage from '@/assets/images/open-graph.jpg'
 import 'photoswipe/style.css'
 import 'photoswipe-dynamic-caption-plugin/photoswipe-dynamic-caption-plugin.css'
 
 interface Props {
-	seo?: SEOProps
+  seo?: SEOProps
 }
 
 const { seo } = Astro.props
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<SEO
-			title={seo?.title ?? site.title}
-			titleTemplate=`%s — ${site.title}`
-			description={seo?.description ?? site.description}
-			openGraph={{
-				basic: {
-					title: site.title,
-					type: 'website',
-					image: ogImage.src,
-				},
-			}}
-			extend={{
-				meta: [{ name: 'twitter:card', content: 'summary' }],
-			}}
-			{...seo}
-		/>
-		<ViewTransitions />
-	</head>
-	<body
-		class:list={[
-			'mx-auto flex h-screen flex-col items-start justify-between p-4 font-sans transition-all duration-300',
-			'bg-background-color text-font-color',
-			'dark:bg-background-color dark:text-font-color',
-		]}
-	>
-		<Header />
-		<main class="w-full flex-grow">
-			<slot />
-		</main>
-		<Footer />
-		<TailwindIndicator align="right" />
-		<style is:global>
-			:root {
-				--font-color: theme('colors.teal.100');
-				--background-color: theme('colors.neutral.900');
-			}
-			html.dark {
-				--font-color: theme('colors.slate.900');
-				--background-color: theme('colors.teal.50');
-			}
-		</style>
-		<script>
-			document.addEventListener('astro:after-swap', loadingEagerImages)
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <SEO
+      title={seo?.title ?? site.title}
+      titleTemplate=`%s — ${site.title}`
+      description={seo?.description ?? site.description}
+      openGraph={{
+        basic: {
+          title: site.title,
+          type: 'website',
+          image: ogImage.src,
+        },
+      }}
+      extend={{
+        meta: [{ name: 'twitter:card', content: 'summary' }],
+      }}
+      {...seo}
+    />
+    <ViewTransitions />
+  </head>
+  <body
+    class:list={[
+      'mx-auto flex h-screen flex-col items-start justify-between p-4 font-sans transition-all duration-300',
+      'bg-background-color text-font-color',
+      'dark:bg-background-color dark:text-font-color',
+    ]}>
+    <Header />
+    <main class="w-full flex-grow">
+      <slot />
+    </main>
+    <Footer />
+    <TailwindIndicator align="right" />
+    <style is:global>
+      :root {
+        --font-color: theme('colors.teal.100');
+        --background-color: theme('colors.neutral.900');
+      }
+      html.dark {
+        --font-color: theme('colors.slate.900');
+        --background-color: theme('colors.teal.50');
+      }
+    </style>
+    <script>
+      document.addEventListener('astro:after-swap', loadingEagerImages)
 
-			// document.addEventListener('DOMContentLoaded', function () {
-			function loadingEagerImages() {
-				document.addEventListener('DOMContentLoaded', function () {
-					// Define the callback function for the Intersection Observer
-					function onIntersection(entries, observer) {
-						entries.forEach((entry) => {
-							if (entry.isIntersecting) {
-								entry.target.setAttribute('loading', 'eager')
-								observer.unobserve(entry.target) // Unobserve the image since we don't need to observe it anymore
-							}
-						})
-					}
+      // document.addEventListener('DOMContentLoaded', function () {
+      function loadingEagerImages() {
+        document.addEventListener('DOMContentLoaded', () => {
+          // Define the callback function for the Intersection Observer
+          function onIntersection(entries, observer) {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.setAttribute('loading', 'eager')
+                observer.unobserve(entry.target) // Unobserve the image since we don't need to observe it anymore
+              }
+            })
+          }
 
-					// Create an Intersection Observer
-					let observer = new IntersectionObserver(onIntersection, {
-						root: null, // Use the viewport as the root
-						rootMargin: '0px',
-						threshold: 0.1, // Trigger the callback when 10% of the image is in the viewport
-					})
+          // Create an Intersection Observer
+          const observer = new IntersectionObserver(onIntersection, {
+            root: null, // Use the viewport as the root
+            rootMargin: '0px',
+            threshold: 0.1, // Trigger the callback when 10% of the image is in the viewport
+          })
 
-					// Select all img elements
-					let images = document.querySelectorAll('img')
+          // Select all img elements
+          const images = document.querySelectorAll('img')
 
-					// Apply the observer to each img element
-					images.forEach((image) => {
-						observer.observe(image)
-					})
-				})
-			}
-			document.addEventListener('astro:after-swap', loadingEagerImages)
-			loadingEagerImages()
-		</script>
-	</body>
+          // Apply the observer to each img element
+          images.forEach((image) => {
+            observer.observe(image)
+          })
+        })
+      }
+      document.addEventListener('astro:after-swap', loadingEagerImages)
+      loadingEagerImages()
+    </script>
+  </body>
 </html>

@@ -2,17 +2,17 @@ import { defineCollection, z } from 'astro:content'
 // import { rssSchema } from '@astrojs/rss';
 
 const images = defineCollection({
-	type: 'content',
-	// Type-check frontmatter using a schema
-	schema: ({ image }) =>
-		z.object({
-			// slug: z.string().optional(),
-			title: z.string().trim().max(180),
-			description: z.string().trim().max(256).optional(),
-			image: image().refine((img) => img.width >= 1024, {
-				message: 'Cover image must be at least 1024 pixels wide!',
-			}),
-		}),
+  type: 'content',
+  // Type-check frontmatter using a schema
+  schema: ({ image }) =>
+    z.object({
+      // slug: z.string().optional(),
+      title: z.string().trim().max(180),
+      description: z.string().trim().max(256).optional(),
+      image: image().refine((img) => img.width >= 1024, {
+        message: 'Cover image must be at least 1024 pixels wide!',
+      }),
+    }),
 })
 
 // const links = defineCollection({

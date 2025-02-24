@@ -1,70 +1,69 @@
 ---
 import type { HTMLAttributes } from 'astro/types'
 import type { CollectionEntry, ContentCollectionKey } from 'astro:content'
-import { Image, getImage } from 'astro:assets'
+import { getImage, Image } from 'astro:assets'
 // import { formatDate } from '@/utils/content'
 // import 'photoswipe/style.css'
 
 interface Props extends HTMLAttributes<'a'> {
-	image: CollectionEntry<ContentCollectionKey>
+  image: CollectionEntry<ContentCollectionKey>
 }
 
 const { image, ...props } = Astro.props
 
 const imagePath = await getImage({
-	src: image.data.image,
-	format: 'webp',
-	width: '3800',
+  src: image.data.image,
+  format: 'webp',
+  width: 3200,
 })
 // console.log(imagePath)
 ---
 
 <a
-	href={`/image/${image.slug}`}
-	class:list={[
-		'flex w-full flex-row gap-4 bg-neutral-800',
-		// 'rounded py-1 px-2',
-		// 'hover:bg-font-color hover:text-background-color',
-	]}
-	{...props}
-	target="_blank"
-	title={image.data.title}
-	aria-label={image.data.title}
-	data-pswp-src={imagePath.src}
-	data-pswp-width={imagePath.attributes.width}
-	data-pswp-height={imagePath.attributes.height}
-	data-cropped="true"
->
-	<h2 class="hidden">{image.data.title}</h2>
-	{
-		image.data.image && (
-			<div class="overflow-hidden">
-				<Image
-					src={image.data.image}
-					alt={image.data.title}
-					width={600}
-					height={600}
-					class:list={[
-						'w-full object-cover duration-1000 ease-in-out',
-						'hover:scale-105 hover:transition-all hover:duration-1000',
-						'aspect-square',
-					]}
-					transition:name={`image-${image.data.title}`}
-					decoding={'auto'}
-					fetchpriority={'auto'}
-				/>
-			</div>
-		)
-	}
-	<div class="pswp-caption-content">
-		<strong class="text-balance text-base font-light">
-			{image.data.title}
-		</strong>
-		<!-- <div class="text-sm text-font-color-20 text-pretty">
+  href={`/image/${image.slug}`}
+  class:list={[
+    'flex w-full flex-row gap-4 bg-neutral-800',
+    // 'rounded py-1 px-2',
+    // 'hover:bg-font-color hover:text-background-color',
+  ]}
+  {...props}
+  target="_blank"
+  title={image.data.title}
+  aria-label={image.data.title}
+  data-pswp-src={imagePath.src}
+  data-pswp-width={imagePath.attributes.width}
+  data-pswp-height={imagePath.attributes.height}
+  data-cropped="true">
+  <h2 class="hidden">{image.data.title}</h2>
+  {
+    image.data.image && (
+      <div class="overflow-hidden">
+        <Image
+          src={image.data.image}
+          alt={image.data.title}
+          width={600}
+          height={600}
+          class:list={[
+            'w-full object-cover duration-1000 ease-in-out',
+            'hover:scale-105 hover:transition-all hover:duration-1000',
+            'aspect-square',
+          ]}
+          transition:name={`image-${image.data.title}`}
+          decoding={'auto'}
+          fetchpriority={'auto'}
+        />
+      </div>
+    )
+  }
+  <div class="pswp-caption-content">
+    <strong class="text-balance text-base font-light">
+      {image.data.title}
+    </strong>
+    <!-- <div class="text-sm text-font-color-20 text-pretty">
 			{image.data.description}
 		</div> -->
-		<!-- <div class="text-sm">{formatDate(image.data.date)}</div> -->
-	</div>
+    <!-- <div class="text-sm">{formatDate(image.data.date)}</div> -->
+  </div>
 </a>
 
 <!-- <script>
